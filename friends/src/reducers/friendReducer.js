@@ -12,11 +12,13 @@ export default function(state = initialState, action) {
     };
     case FETCH_SUCCESS: return {
       ...state,
-      inProcess: false
+      inProcess: false,
+      data: action.payload
     };
     case FETCH_ERROR: return {
       ...state,
-      inProcess: false
+      inProcess: false,
+      error: action.payload
     };
     default: return state;
   };

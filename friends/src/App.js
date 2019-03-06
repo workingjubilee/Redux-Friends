@@ -9,6 +9,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchFriends()
   };
+
   render() {
     return (
       <div className="App">
