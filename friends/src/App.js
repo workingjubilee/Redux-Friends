@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { fetchFriends } from './actions/';
 import FriendList from './components/FriendList';
 import FriendForm from './components/FriendForm';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchFriends()
+  };
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <FriendList />
+          <p>{JSON.stringify(this.props.friends)}</p>
         </header>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  friends: state.friends
+});
+
+export default connect(mapStateToProps, { fetchFriends })(App);
