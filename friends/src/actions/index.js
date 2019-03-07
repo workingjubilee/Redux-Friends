@@ -8,17 +8,12 @@ export const fetchFriends = () => dispatch => {
   // Standard Promise-based "start, then finish in one of two states."
   dispatch( {type: FETCHING_FRIENDS} );
   console.log("Also triggered.");
-  axios.get('http://localhost.com:5000/api/friends', {
-    auth: {
-      username: 'Lambda School',
-      password: 'i<3Lambd4'
-    }
-  })
+  axios.get('https://localhost.com:5000/api/friends/')
     .then(result => {
       dispatch( {type: FETCH_SUCCESS, payload: result} )
     })
     .catch(error => {
-      dispatch( {type: FETCH_ERROR, payload: error.message} )
+      dispatch( {type: FETCH_ERROR, payload: error} )
     });
 };
 
