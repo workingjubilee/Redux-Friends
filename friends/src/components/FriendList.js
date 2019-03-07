@@ -1,10 +1,11 @@
 import React from 'react';
 
-const friends = ["Austin Powers"]
-
-const FriendList = (props) => {
+const FriendList = ({friends}) => {
   const friendMap = friends.map(friend => {
-    return <li>{friend}</li>
+    return (
+      <li>
+      {friend.name}, {friend.age} years old, {friend.email}</li>
+    )
   });
   return (
     <ul>

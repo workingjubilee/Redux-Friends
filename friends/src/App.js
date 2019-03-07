@@ -27,7 +27,8 @@ class App extends Component {
           <p>Component Mounted: {this.state.mountTime}</p>
           <p>Axios Began: {this.props.friends.beginTime}</p>
           <p>Axios Returned: {this.props.friends.returnTime}</p>
-          <p>{this.props.friends.error}</p>
+          {this.props.friends.list && <FriendList friends={this.props.friends.list} />}
+          <p>{JSON.stringify(this.props.friends.error)}</p>
         </header>
       </div>
     );

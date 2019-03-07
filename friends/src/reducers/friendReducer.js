@@ -14,7 +14,8 @@ export default function(state = initialState, action) {
     case FETCH_SUCCESS: return {
       ...state,
       inProcess: false,
-      data: action.payload,
+      list: action.payload,
+      returnTime: new Date(Date.now()).toString()
 
     };
     case FETCH_ERROR: return {
