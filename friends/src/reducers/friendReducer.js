@@ -8,17 +8,20 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case FETCHING_FRIENDS: return {
       ...state,
-      inProcess: true
+      inProcess: true,
+      beginTime: new Date(Date.now()).toString()
     };
     case FETCH_SUCCESS: return {
       ...state,
       inProcess: false,
-      data: action.payload
+      data: action.payload,
+
     };
     case FETCH_ERROR: return {
       ...state,
       inProcess: false,
-      error: action.payload
+      error: action.payload,
+      returnTime: new Date(Date.now()).toString()
     };
     default: return state;
   };

@@ -6,15 +6,28 @@ import FriendForm from './components/FriendForm';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mountTime: 0
+    };
+  };
   componentDidMount() {
-    this.props.fetchFriends()
+    this.props.fetchFriends();
+    const timestamp = new Date(Date.now()).toString();
+    this.setState(prevState=> ({
+      mountTime: timestamp
+    }));
   };
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <p>{JSON.stringify(this.props.friends)}</p>
+          <p>Component Mounted: {this.state.mountTime}</p>
+          <p>Axios Began: {this.props.friends.beginTime}</p>
+          <p>Axios Returned: {this.props.friends.returnTime}</p>
+          <p>{this.props.friends.error}</p>
         </header>
       </div>
     );

@@ -130,5 +130,6 @@ function getNextId() {
 }
 
 app.listen(port, () => {
-  console.log(`server listening on port ${port}`);
+  const timestamp = new Date(Date.now());
+  console.log(`server listening on port ${port} at ${timestamp}`);
 });
