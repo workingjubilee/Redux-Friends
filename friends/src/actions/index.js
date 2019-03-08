@@ -24,7 +24,7 @@ function iAmTheSenate(){
   return axios.create({
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `${testToken}`,
+            'Authorization': 'esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ',
         }
 })
 };
