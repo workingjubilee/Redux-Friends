@@ -3,6 +3,10 @@ import axios from 'axios';
 export const FETCHING_FRIENDS = 'FETCHING_FRIENDS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_ERROR = 'FETCH_ERROR';
+export const LOGGING_IN = 'LOGGING_IN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const BEFRIENDING = 'BEFRIENDING';
 
 const testToken = 'esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ';
 
@@ -35,6 +39,20 @@ export const fetchFriends = () => dispatch => {
     .catch(error => {
       dispatch( {type: FETCH_ERROR, payload: error.response.data} )
     });
+};
+
+export const beFriend = () => dispatch => {
+  dispatch( {type: BEFRIENDING} );
+  axios.post('http://localhost:5000/api/friends/')
+    .then(result => {
+      dispatch({})
+    }).catch(error => {
+      dispatch({})
+    });
+};
+
+export const logIn = () => dispatch => {
+  dispatch( {type: LOGGING_IN} );
 };
 
 // (username === 'Lambda School' && password === 'i<3Lambd4')

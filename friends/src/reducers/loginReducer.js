@@ -1,4 +1,4 @@
-import { FETCHING_FRIENDS, FETCH_SUCCESS, FETCH_ERROR } from '../actions';
+import { LOGGING_IN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions';
 
 const initialState = {
   inProcess: false
@@ -6,18 +6,19 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case FETCHING_FRIENDS: return {
+    case LOGGING_IN: return {
       ...state,
       inProcess: true,
       beginTime: new Date(Date.now()).toString()
     };
-    case FETCH_SUCCESS: return {
+    case LOGIN_SUCCESS: return {
       ...state,
       inProcess: false,
       list: action.payload,
       returnTime: new Date(Date.now()).toString()
+
     };
-    case FETCH_ERROR: return {
+    case LOGIN_ERROR: return {
       ...state,
       inProcess: false,
       error: action.payload,

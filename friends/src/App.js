@@ -36,7 +36,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  friends: state.friends
+  friends: state.friends,
+  login: state.login
 });
 
 export default connect(mapStateToProps, { fetchFriends })(App);
